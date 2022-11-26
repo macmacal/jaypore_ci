@@ -1,0 +1,7 @@
+*.pyc
+*.env
+*.age
+dist/
+.hypothesis/
+.coverage
+prof/

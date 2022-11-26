@@ -1,15 +1,15 @@
-# Jaypore CI
 
-## Ideas
+# ![JayporeCI](docs/source/_static/logo80.png) Jaypore CI
 
-1. Use developer laptop as a CI runner
-    - Cloud runners should be added on demand / only if needed.
-2. Report logs / status in any pull request tracker as a comment.
-    - Store files / etc in special git branches
+Documentation is at : https://www.jayporeci.in
+
+## If you are reading this on github
+
+- Github is only the mirror for this codebase.
+- Actual development is on a personal gitea instance.
+- Please use github to file issues / PRs and I'll get them merged when I have time.
 
 ## Usage
 
-1. Add `jaypore_ci` as python dependency in your project.
-2. Define pipelines in Python however you want. See `cicd` folder in current project for examples.
-3. Add a docker-compose file to add a runner for the project.
-
+- Install : `curl https://www.jayporeci.in/setup.sh | bash`
+- Trigger : `git push origin`
