@@ -242,7 +242,7 @@ class Pipeline:  # pylint: disable=too-many-instance-attributes
         self.reporter = reporter if reporter is not None else reporters.text.Text()
         self.poll_interval = poll_interval
         self.stages = ["Pipeline"]
-        self.pipe_id = self._get_pipe_id() 
+        self.pipe_id = self._get_pipe_id()
         self.executor.set_pipeline(self)
         # ---
         kwargs["image"] = kwargs.get("image", "arjoonn/jci:latest")
