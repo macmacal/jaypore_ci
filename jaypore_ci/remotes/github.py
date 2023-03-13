@@ -115,7 +115,7 @@ class Github(Remote):  # pylint: disable=too-many-instance-attributes
 
         :param report: Report to write to remote.
         :param status: One of ["pending", "success", "error", "failure"]
-                       This is the dot/tick next to each commit in gitea.
+        This is the dot/tick next to each commit in gitea.
         """
         assert status in ("pending", "success", "error", "failure")
         issue_id = self.get_pr_id()

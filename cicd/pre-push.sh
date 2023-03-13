@@ -44,6 +44,7 @@ hook() {
         --name jayporeci__pipe__$SHA \
         -e JAYPORE_CODE_DIR=$JAYPORE_CODE_DIR \
         -e SHA=$SHA \
+	-e JAYPORE_GITEA_TOKEN=qqq \
         -v /var/run/docker.sock:/var/run/docker.sock \
         -v /tmp/jayporeci__src__$SHA:/jaypore_ci/run \
         --workdir /jaypore_ci/run \

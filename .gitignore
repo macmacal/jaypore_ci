@@ -7,3 +7,4 @@ dist/
 prof/
 htmlcov/
 .pytest_cache/
+.venv/

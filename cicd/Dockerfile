@@ -1,2 +1,2 @@
-FROM arjoonn/jci:latest
+FROM macmacal/jci:latest
 COPY ../ /jaypore_ci/repo/

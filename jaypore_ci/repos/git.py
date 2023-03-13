@@ -23,6 +23,7 @@ class Git(Repo):
         Gets repo status from the environment and git repo on disk.
         """
         remote = cls._parse_remote_url(remote_url=cls._get_git_remote_url())
+
         branch = (
             subprocess.check_output(
                 r"git branch | grep \* | awk '{print $2}'", shell=True
