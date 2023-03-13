@@ -242,15 +242,7 @@ class Pipeline:  # pylint: disable=too-many-instance-attributes
         self.reporter = reporter if reporter is not None else reporters.text.Text()
         self.poll_interval = poll_interval
         self.stages = ["Pipeline"]
-        self.pipe_id = (
-            subprocess.check_output(
-                "cat /proc/self/cgroup | grep name= | awk -F/ '{print $3}'",
-                shell=True,
-                stderr=subprocess.STDOUT,
-            )
-            .decode()
-            .strip()
-        )
+        self.pipe_id = self._get_pipe_id() 
         self.executor.set_pipeline(self)
         # ---
         kwargs["image"] = kwargs.get("image", "arjoonn/jci:latest")
@@ -259,6 +251,21 @@ class Pipeline:  # pylint: disable=too-many-instance-attributes
         kwargs["stage"] = "Pipeline"
         self.pipe_kwargs = kwargs
         self.stage_kwargs = None
+
+    def _get_pipe_id(self):
+        pipe_id = (
+            subprocess.check_output(
+                "cat /proc/self/cgroup | awk -F/ '{print $3}'",
+                shell=True,
+                stderr=subprocess.STDOUT,
+            )
+            .decode()
+            .strip()
+        )
+        if len(pipe_id):
+            return pipe_id
+        # In some systems, there could be no name in the cgroup file
+        return str(time.time_ns())
 
     def logging(self):
         """
